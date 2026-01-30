@@ -866,6 +866,10 @@ function parseTagged(botText) {
 }
 
 async function ttsSpeak(text) {
+    text = (text || "").trim();
+  if (!text) {
+    text = "Listo. Sigamos. Cuéntame, ¿qué tal tu día hoy?";
+  }
   const voice = voiceSel.value || "shimmer";
   const r = await fetch(`${WORKER}/tts`, {
     method: "POST",
