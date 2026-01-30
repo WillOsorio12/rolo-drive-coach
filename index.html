@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Rolo Drive Coach</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <h1>Rolo Drive Coach</h1>
+    <p class="sub">Un toque y arrancas. Conversación + vocab + fluidez (Bogotá, amable-profesional).</p>
+
+    <section class="card">
+      <div class="row">
+        <button id="startBtn" class="primary">Iniciar modo manejo</button>
+        <button id="stopBtn" class="ghost" disabled>Parar</button>
+      </div>
+
+      <div class="row">
+        <label class="pill">
+          Voz
+          <select id="voiceSel">
+            <option value="shimmer" selected>shimmer (female)</option>
+            <option value="nova">nova</option>
+            <option value="coral">coral</option>
+            <option value="sage">sage</option>
+            <option value="marin">marin</option>
+            <option value="cedar">cedar</option>
+          </select>
+        </label>
+
+        <label class="pill">
+          Turno (seg)
+          <select id="turnLenSel">
+            <option value="8">8</option>
+            <option value="12" selected>12</option>
+            <option value="15">15</option>
+          </select>
+        </label>
+
+        <label class="pill">
+          Vocab
+          <select id="vocabModeSel">
+            <option value="calendar" selected>Por día</option>
+            <option value="session">Por sesión</option>
+          </select>
+        </label>
+
+        <label class="pill">
+          Pantalla activa
+          <select id="wakeSel">
+            <option value="on" selected>ON</option>
+            <option value="off">OFF</option>
+          </select>
+        </label>
+
+        <label class="pill">
+          Corrección
+          <select id="strictSel">
+            <option value="light">Ligera</option>
+            <option value="normal" selected>Normal</option>
+            <option value="strict">Estricto</option>
+          </select>
+        </label>
+
+        <label class="pill">
+          Sesión
+          <select id="sessionSel">
+            <option value="15">15 min</option>
+            <option value="30" selected>30 min</option>
+          </select>
+        </label>
+
+      </div>
+
+      <div class="row">
+        <button id="exportBtn" class="ghost">Exportar frases (CSV)</button>
+        <button id="clearBtn" class="ghost">Borrar frases</button>
+      </div>
+
+      <div class="log" id="log"></div>
+    </section>
+
+    <section class="card small">
+      <h2>Comandos de voz</h2>
+      <p class="cmds">
+        “repite”, “más despacio”, “corrígeme”, “cambia tema a deportes/familia/trabajo/noticias/negocios/intereses”, “modo historia”, “resumen”, “vocab”, “frases”
+      </p>
+      <p class="note">Tip iPhone: abre esto en Safari y permite el micrófono cuando te lo pida.</p>
+    </section>
+  </main>
+
+  <script>
+    // IMPORTANT: Replace this with your Cloudflare Worker URL, e.g.
+    // https://rolo-drive-coach.your-subdomain.workers.dev
+    window.WORKER_BASE_URL = "YOUR_WORKER_URL_HERE";
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>
