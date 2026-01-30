@@ -847,6 +847,9 @@ async function chat(userText) {
 
   const data = await r.json();
   const botText = (data.output_text || "").trim();
+    if (!botText) {
+    return "[ASK] Listo, empecemos. ¿Qué hiciste hoy en la mañana?";
+  }
   conversationText += `ASISTENTE: ${botText}\n`;
   return botText;
 }
